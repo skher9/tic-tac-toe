@@ -5,9 +5,13 @@ const Container = styled.div``;
 
 const Wrapper = styled.div``;
 
+const Title = styled.h1``;
+
 const Table = styled.table`
   border: 3px solid;
   align-items: center;
+  margin-left: 500px;
+  margin-top: 70px;
 `;
 
 const Tbody = styled.tbody``;
@@ -26,7 +30,9 @@ const Button = styled.button`
   background-color: transparent;
 `;
 
-const WinnerAnnouncemnt = styled.h2``;
+const WinnerAnnouncemnt = styled.h2`
+  margin-top: 50px;
+`;
 
 const Home = () => {
   const [matrix, setmatrix] = useState([
@@ -98,6 +104,7 @@ const Home = () => {
   return (
     <Container>
       <Wrapper>
+        <Title>Tic Tac Toe Game!</Title>
         <Table>
           <Tbody>
             {matrix.map((row, rowIndex) => (
