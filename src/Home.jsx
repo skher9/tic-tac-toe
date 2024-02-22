@@ -1,7 +1,11 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Wrapper = styled.div``;
 
@@ -10,8 +14,8 @@ const Title = styled.h1``;
 const Table = styled.table`
   border: 3px solid;
   align-items: center;
-  margin-left: 500px;
-  margin-top: 70px;
+  margin-top: 40px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.7);
 `;
 
 const Tbody = styled.tbody``;
@@ -28,6 +32,16 @@ const Button = styled.button`
   font-size: 50px;
   border: 2px solid black;
   background-color: transparent;
+`;
+
+const ResetButton = styled.button`
+  background-color: transparent;
+  border: 2px solid;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  font-size: large;
+  cursor: pointer;
 `;
 
 const WinnerAnnouncemnt = styled.h2`
@@ -101,10 +115,19 @@ const Home = () => {
     checkWinner();
   };
 
+  const handleResetClick = () => {
+    setmatrix([
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ]);
+  };
+
   return (
     <Container>
       <Wrapper>
         <Title>Tic Tac Toe Game!</Title>
+        <ResetButton onClick={() => handleResetClick()}>Reset</ResetButton>
         <Table>
           <Tbody>
             {matrix.map((row, rowIndex) => (
